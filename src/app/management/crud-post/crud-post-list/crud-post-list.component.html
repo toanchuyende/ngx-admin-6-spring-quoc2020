@@ -1,0 +1,48 @@
+<nb-layout>
+  <!-- <nb-layout-header fixed>
+    <button nbButton status="success" size="tiny" >Toggle</button>
+    <button nbButton status="info" size="tiny" >Toggle Compact</button>
+  </nb-layout-header> -->
+
+  <!-- <nb-sidebar tag="left"></nb-sidebar>
+  <nb-sidebar right tag="right"></nb-sidebar> -->
+
+  <nb-layout-header subheader>
+    <nb-actions>
+      <nb-action>
+        <nb-icon status="info" class="action-icon" icon="list-outline"></nb-icon>
+        <h4 outline status="info">Danh sách Bài viết</h4>
+      </nb-action>
+      <nb-action (click)="onClickCreate($event)">
+        <button nbButton outline status="info" (click)="onClickCreate($event)"><nb-icon icon="plus-circle-outline"></nb-icon>Tạo mới Bài viết</button>
+      </nb-action>
+
+    </nb-actions>
+  </nb-layout-header>
+
+  <nb-layout-column class="colored-column-basic"><ng2-smart-table [settings]="settings"
+    (custom)="onCustom($event)"
+
+    [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table></nb-layout-column>
+
+</nb-layout>
+
+<!-- <nb-layout>
+  <nb-layout-header fixed>
+    <a href="#" (click)="toggle()"><i class="nb-menu"></i></a>
+  </nb-layout-header>
+
+  <nb-layout-header subheader>
+    <nb-actions>
+      <nb-action icon="home-outline"></nb-action>
+      <nb-action icon="search-outline"></nb-action>
+      <nb-action icon="edit-outline"></nb-action>
+    </nb-actions>
+  </nb-layout-header>
+
+  <nb-sidebar></nb-sidebar>
+
+  <nb-layout-column class="colored-column-basic">Layout Content</nb-layout-column>
+</nb-layout> -->
+

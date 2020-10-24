@@ -1,0 +1,44 @@
+<nb-layout>
+  <nb-layout-column>
+    <!-- <a routerLink="/pages/extra-components/chat"
+      >Tham khảo extra-components chat</a
+    > -->
+    <div>
+      <div *ngIf="__isLoggedShared">
+        {{ __username }}
+      </div>
+    </div>
+    <nb-chat
+      [title]="__username + ' ' + this.currentConversation.title"
+      size="large"
+      status="success"
+    >
+      <nb-chat-message
+        *ngFor="let message of messages"
+        [type]="message.type"
+        [message]="message.text"
+        [reply]="!message.reply"
+        [sender]="message.user.name"
+        [date]="message.date"
+        [files]="message.files"
+        [quote]="message.quote"
+        [latitude]="message.latitude"
+        [longitude]="message.longitude"
+        [avatar]="message.user.avatar"
+      ></nb-chat-message>
+      <nb-chat-form
+        (send)="
+          sendMessageToServer(
+            $event,
+            __username,
+            'https://i.gifer.com/no.gif',
+            false
+          )
+        "
+        [showButton]="false"
+        [dropFiles]="true"
+      >
+      </nb-chat-form>
+    </nb-chat>
+  </nb-layout-column>
+</nb-layout>

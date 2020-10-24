@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6">
+    <nb-layout>
+      <nb-layout-header subheader>
+        <nb-actions>
+          <nb-action>
+            <nb-icon
+              status="info"
+              class="action-icon"
+              icon="list-outline"
+            ></nb-icon>
+            <h4 outline status="info">Danh sách Thảo luận</h4>
+          </nb-action>
+          <nb-action (click)="onClickCreate($event)">
+            <button
+              nbButton
+              outline
+              status="info"
+              (click)="onClickCreate($event)"
+            >
+              <nb-icon icon="plus-circle-outline"></nb-icon>Tạo mới Bài viết
+            </button>
+          </nb-action>
+        </nb-actions>
+      </nb-layout-header>
+
+      <nb-layout-column class="colored-column-basic"
+        ><ng2-smart-table
+          [settings]="settings"
+          (custom)="onCustom($event)"
+          [source]="source"
+          (deleteConfirm)="onDeleteConfirm($event)"
+        >
+        </ng2-smart-table
+      ></nb-layout-column>
+    </nb-layout>
+  </div>
+  <div class="col-md-6">
+    <agile-conversation-open [currentId]="selectId"></agile-conversation-open>
+  </div>
+</div>
